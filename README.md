@@ -1,13 +1,11 @@
 # utyuu-blog: my personal website & blog
-
-### Techs
-React.js + Springboot + Maven + MySQL(Docker) + ?nginx?
 ##  
 Finally All stuff are going to be hosted at utyuucali.co
 
 For tentative, the project is hosted on https://zy035c.github.io/utyuublog/
 
-## ✨Back-end: Spriiiing-boot
+## ✨Back-end: Spriiiing-Boot
+Maven + MySQL(Docker) + ?nginx?
 
 ### TodoList (function)
 * [ ] Index page for self intro/CV as a SWE

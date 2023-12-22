@@ -1,6 +1,8 @@
 # utyuu-blog: my personal website & blog
 
-Tech: React.js + Springboot + Maven + MySQL(Docker) + ?nginx?
+### Techs
+React.js + Springboot + Maven + MySQL(Docker) + ?nginx?
+##  
 Finally All stuff are going to be hosted at utyuucali.co
 
 For tentative, the project is hosted on https://zy035c.github.io/utyuublog/

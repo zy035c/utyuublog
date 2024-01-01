@@ -73,3 +73,6 @@ celestial/test-output/
 *.rar
 *.sql
 *.tar.xz
+
+package.json
+package-lock.json

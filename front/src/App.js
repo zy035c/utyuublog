@@ -4,8 +4,8 @@ import { Component } from 'react';
 import { Link, BrowserRouter, Route } from 'react-router-dom';
 import 'bootstrap';
 
-import About from './js/about/about';
-import Home from './js/home/home';
+import About from '../../utyuu/src/old_redux/js/about/about';
+import Home from '../../utyuu/src/old_redux/js/home/home';
 
 export default class App extends Component {
 

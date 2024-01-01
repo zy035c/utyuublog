@@ -1,43 +1,36 @@
 import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid"; // 用于生成唯一的 key
+import "./image_grid.css";
 
-let croppers = {}
+let croppers = {};
 
 const crop = (album_name) => {
-    if (album_name in croppers) {
-        return croppers[album_name];
-    }
-    return "";
+  if (album_name in croppers) {
+    return album_name;
+  } else {
+    return "Vcl_cover";
+  }
 };
 
-const setCrop = (album_name, css) => {
-    croppers[album_name] = css;
-} 
-
-const AlbumCover = ({image, key, useScaling, tileSize}) => {
-    const album_name = image.split('.')[0].split('/').pop()
-    console.log(album_name);
-
-    if (useScaling) {
-        return (
-            <div>
-                <img
-                    className={`object-cover m-0 bg-no-repeat ${crop(album_name)}`}
-                    style={{
-                        width: `${tileSize}px`,
-                        height: `${tileSize}px`,
-                    }}
-                    alt="~"
-                    src={image}
-                />
-            </div>
-        );
-
-        
-    } else {
-        return (<></>);
-    }
-}
+const AlbumCover = ({ image, key, useScaling, tileSize }) => {
+  const album_name = image.split(".")[0].split("/").pop();
+  console.log(album_name);
+  // console.log(image);
+  const divStyle = {
+    backgroundImage: `url(${image})`,
+    // width: `${tileSize}px`,
+    // height: `${tileSize}px`,
+  };
+  if (useScaling) {
+    return (
+      // <div style={divStyle} className={`bg-cover bg-no-repeat ${crop(album_name)}`}>
+        <div style={divStyle} className={`Vcl_cover vocaloid-${album_name}`}>
+        </div>
+    );
+  } else {
+    return <></>;
+  }
+};
 
 const ImageGrid = ({ folderPath, useScaling, tileSize }) => {
   const [imageList, setImageList] = useState([]);
@@ -52,28 +45,30 @@ const ImageGrid = ({ folderPath, useScaling, tileSize }) => {
     setImageList(images);
   }, [folderPath]);
 
-  setCrop("chair_for_two", "object-left")
-  setCrop("Melt", "object-left h-full")
-
-
   console.log(`Loaded ${imageList.length} album covers.`);
-  return (
-    <div
-      className={`flex flex-wrap justify-center items-center h-screen ${
-        useScaling ? "bg-gray-200" : ""
-      }`}
-    >
-      {imageList.map((image, index) => (
-        <AlbumCover 
-            image={image}
-            key={index} 
-            useScaling={useScaling} 
-            tileSize={tileSize}
-        />
-      ))}
-    </div>
-  );
+  if (useScaling) {
+    return (
+      <div
+        // className={
+        //   `flex flex-wrap justify-center items-center h-screen bg-gray-200"`
+        // }
+        className="container w-full h-full bg-gray-200"
+      >
+        <div className="flex flex-wrap">
+          {imageList.map((image, index) => (
+            <AlbumCover
+              image={image}
+              key={index}
+              useScaling={useScaling}
+              tileSize={tileSize}
+            />
+          ))}
+        </div>
+      </div>
+    );
+  } else {
+    return null;
+  }
 };
 
 export default ImageGrid;
- 

@@ -2,20 +2,8 @@ import React, { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid"; // 用于生成唯一的 key
 import "./image_grid.css";
 
-let croppers = {};
-
-const crop = (album_name) => {
-  if (album_name in croppers) {
-    return album_name;
-  } else {
-    return "Vcl_cover";
-  }
-};
-
-const AlbumCover = ({ image, key, useScaling, tileSize }) => {
+const AlbumCover = ({ image, useScaling, tileSize }) => {
   const album_name = image.split(".")[0].split("/").pop();
-  console.log(album_name);
-  // console.log(image);
   const divStyle = {
     backgroundImage: `url(${image})`,
     // width: `${tileSize}px`,
@@ -39,7 +27,7 @@ const ImageGrid = ({ folderPath, useScaling, tileSize }) => {
     // 读取文件夹中的所有图片
     const importAll = (r) => r.keys().map(r);
     const images = importAll(
-      require.context("./collection", false, /\.(png|jpe?g|svg)$/)
+      require.context("./collection", false, /\.(png|jpe?g|svg|webp)$/)
     );
     // 设置图片列表
     setImageList(images);
@@ -72,3 +60,4 @@ const ImageGrid = ({ folderPath, useScaling, tileSize }) => {
 };
 
 export default ImageGrid;
+

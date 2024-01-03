@@ -1,6 +1,6 @@
 import './App.css';
 import React from 'react';
-import Vocallection from './vocalo/disc';
+import Vocacollection from './vocalo/disc';
 import OldAppDemo from './old_app/oldapp';
 import { Link, Routes, BrowserRouter, Route } from 'react-router-dom';
 
@@ -31,7 +31,7 @@ const App = () => {
         <Routes>
           <Route path="/" exact element={<HomePage/>} />
           <Route path="/old_demo/*" element={<OldAppDemo/>} />
-          <Route path="/vocallection/*" element={<Vocallection/>} />
+          <Route path="/vocallection/*" element={<Vocacollection/>} />
         </Routes>
       </BrowserRouter>
     </div>

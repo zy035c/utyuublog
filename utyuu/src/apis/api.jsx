@@ -1,25 +1,29 @@
-const API_URL = `127.0.0.1:8080/api`;
+const API_URL = `http://127.0.0.1:8080/api`;
 
 const simpleFetch = async (endpoint, endpointName) => {
-  try {
-    const response = await fetch(API_URL + endpoint);
-
+  fetch(API_URL + endpoint, {
+    mode: "cors",
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+  }).then(async (response) => {
     if (!response.ok) {
-        console.error(`${endpointName}: Network response was not ok`);
-        return null;
+      console.error(`${endpointName}: Network response was not ok`);
+      return null;
     }
-    console.log(response);
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error(`${endpointName}: Error fetching text data:`, error);
-    return null;
-  }
+    response = await response.json()
+    console.log("Fetched Data:" + response);
+
+    return response;
+  });
 };
 
 const getTitleLyrics = async () => {
-  const data = await simpleFetch("/index", "getTitleLyrics");
-  return data.text;
+  const parsedData = await simpleFetch("/index", " getTitleLyrics");
+  console.log(parsedData["lyricText"]);
+  // return parsedData["text"];
 };
 
 export { getTitleLyrics };

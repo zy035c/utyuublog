@@ -59,6 +59,7 @@ const ImageGrid = ({ folderPath, useScaling, tileSize }) => {
       require.context("./collection", false, /\.(png|jpe?g|svg|webp)$/)
     );
     // 设置图片列表
+    console.log(`Loaded ${images.length} album covers.`);
     setImageList(images);
   }, [folderPath]);
 
@@ -142,7 +143,6 @@ const ImageGrid = ({ folderPath, useScaling, tileSize }) => {
     };
   }, [tileSize, wallWidth, imageList]);
 
-  console.log(`Loaded ${imageList.length} album covers.`);
   return (
     <div
       className="bg-gray-200"

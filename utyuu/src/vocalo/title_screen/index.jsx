@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getTitleLyrics } from "@src/apis/api";
+import {getTitleLyrics} from "apis/api";
 
 const Lyrics = () => {
   const [titleLyrics, setTitleLyrics] = useState("");

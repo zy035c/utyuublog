@@ -5,6 +5,9 @@ check:
 start:
 	@cd /home/zy035c/Utyuuzz/utyuublog/celestial && ./mvnw spring-boot:run -e
 
+bg-start:
+	@cd /home/zy035c/Utyuuzz/utyuublog/celestial && ./mvnw spring-boot:run -e &
+
 shutdown:
 	@echo "-------Spring-boot application utyuublog shutting down-------"
 	@pids=$$(ps aux | grep spring | grep -v grep | awk '{ print $$2 }'); \

@@ -1,8 +1,8 @@
+package com.laptisis.celestial.controller;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-// package com.laptisis.celestial.controller;
 
 @RestController
 @RequestMapping("/api")

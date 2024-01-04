@@ -1,21 +1,16 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
+import { getTitleLyrics } from "@src/apis/api";
 
 const Lyrics = () => {
+  const [titleLyrics, setTitleLyrics] = useState("");
+
+  useEffect(() => {
+    setTitleLyrics(getTitleLyrics());
+  }, []);
+
   return (
     <div className="rounded-md py-4 px-6 text-center">
-      <p className="text-lg font-semibold text-blue-700">
-        This is a block with some text.
-        <br />
-        sgfgsd
-        <br />
-        sgfgsd
-        <br />
-        sgfgsd
-        <br />
-        sgfgsd
-        <br />
-        sgfgsd
-      </p>
+      <p className="text-lg font-semibold text-blue-700">{titleLyrics}</p>
     </div>
   );
 };

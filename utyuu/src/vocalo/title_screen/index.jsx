@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
-import {getTitleLyrics} from "apis/api";
+import { getTitleLyrics } from "apis/api";
 
 const Lyrics = () => {
   const [titleLyrics, setTitleLyrics] = useState("");
 
   useEffect(() => {
-    setTitleLyrics(getTitleLyrics());
+    (async() => {
+      const data = await getTitleLyrics();
+      setTitleLyrics(data);
+    })();
   }, []);
 
   return (

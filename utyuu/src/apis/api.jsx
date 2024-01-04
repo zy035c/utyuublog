@@ -1,4 +1,4 @@
-const API_URL = `localhost:8080/api`;
+const API_URL = `127.0.0.1:8080/api`;
 
 const simpleFetch = async (endpoint, endpointName) => {
   try {

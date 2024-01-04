@@ -18,7 +18,7 @@ const simpleFetch = async (endpoint, endpointName) => {
 };
 
 const getTitleLyrics = async () => {
-  return await simpleFetch("/index", "getTitleLyrics");
+  const data = await simpleFetch("/index", "getTitleLyrics");
 };
 
 export { getTitleLyrics };

@@ -2,7 +2,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-package com.laptisis.celestial.controller;
+// package com.laptisis.celestial.controller;
 
 @RestController
 @RequestMapping("/api")
@@ -10,6 +10,7 @@ public class HelloUtyuu {
     
     @GetMapping("/index")
     public String index() {
+
         return """
             あなたの宇宙を分解だ 蛍火が消える前に\n
             你的宇宙在逐渐分解 在萤火消失之前\n\n

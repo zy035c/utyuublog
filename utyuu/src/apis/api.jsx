@@ -8,7 +8,7 @@ const simpleFetch = async (endpoint, endpointName) => {
         console.error(`${endpointName}: Network response was not ok`);
         return null;
     }
-
+    console.log(response);
     const data = await response.json();
     return data;
   } catch (error) {
@@ -19,6 +19,7 @@ const simpleFetch = async (endpoint, endpointName) => {
 
 const getTitleLyrics = async () => {
   const data = await simpleFetch("/index", "getTitleLyrics");
+  return data.text;
 };
 
 export { getTitleLyrics };

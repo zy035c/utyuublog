@@ -1,0 +1,13 @@
+/* public/fonts.css */
+
+@font-face {
+    font-family: 'Yasashida Gothic';
+    src: url('./fonts/YasashisaGothicBold-V2.otf') format('opentype');
+    /* 可以添加其他格式的字体文件，根据需要添加不同的src项 */
+}
+
+@font-face {
+    font-family: 'Harenosota';
+    src: url('./fonts/Harenosota.otf') format('opentype');
+    /* 可以添加其他格式的字体文件，根据需要添加不同的src项 */
+}

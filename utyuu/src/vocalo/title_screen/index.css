@@ -1,0 +1,31 @@
+#TitleLyrics {
+    white-space: pre-line;
+    font-family: 'M PLUS 1', sans-serif;
+    color: rgba(256, 256, 0, 0.75);
+    font-size: 1.5em;
+    /* 调整字体大小 */
+    text-shadow: 0 0 100px rgba(255, 255, 255. 0.9);
+    /* 添加白色辉光 */
+    /* 使用 bounceIn 动画 */
+    animation-name: fadeIn;
+    animation-duration: 1.8s;
+    animation-timing-function: cubic-bezier(.34, .79, .53, 1.15)
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        /* 初始状态：透明度为0，完全不可见 */
+        transform: translateY(-500px);
+    }
+
+    12% {
+        opacity: 0.1;
+        transform: translateY(-500px);
+    }
+
+    100% {
+        opacity: 0.75;
+        transform: translateY(0px);
+    }
+}

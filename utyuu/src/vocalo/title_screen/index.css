@@ -1,22 +1,47 @@
-#TitleLyrics {
-    white-space: pre-line;
-    font-family: 'M PLUS 1', sans-serif;
-    color: rgba(256, 256, 256, 0.75);
-    font-size: 1.8em;
-    /* 调整字体大小 */
-    font-weight: 600;
-    /* 添加白色辉光 */
-    text-shadow: 1px 1px 3px rgba(256, 256, 256, 0.6);
-    /* 使用 bounceIn 动画 */
-    animation-name: fadeIn;
-    animation-duration: 0.8s;
-    animation-timing-function: cubic-bezier(.34, .79, .53, 1.15)
+.titleLyricLine {
+  writing-mode: vertical-rl;
+  color: rgba(171, 235, 236, 0.85);
+  opacity: 0;
+  font-size: 2em;
+  /* 调整字体大小 */
+  font-weight: 300;
+  /* 添加白色辉光 */
+  text-shadow: 1px 1px 3px rgb(38, 96, 96);
 }
+
+.titleLyricJapanese {
+  font-family: 'Yasashisa Gothic', 'M PLUS 1', sans-serif;
+}
+
+.titleLyricChinese {
+  font-family: 'Yasashisa Gothic', 'M PLUS 1', sans-serif;
+  font-size: 2em;
+}
+
+#TitleLyricEnglish {
+  font-family: 'Yasashisa Gothic', 'M PLUS 1', sans-serif;
+}
+
+ 
+@keyframes revealText {
+  from {
+    transform: translateX(70px);
+  }
+  to {
+    opacity: 0.99;
+    transform: translateX(0);
+  }
+}
+
+.text-animation {
+  display: inline-block;
+  animation: revealText 2.6s cubic-bezier(.39,.55,.17,1.03) forwards
+}
+
 
 @keyframes fadeIn {
     0% {
         opacity: 0;
-        /* 初始状态：透明度为0，完全不可见 */
         transform: translateY(-100);
     }
 
@@ -26,32 +51,13 @@
     }
 
     100% {
-        opacity: 0.75;
+        opacity: 1;
         transform: translateY(0px);
     }
 }
 
-.subtitle {
-    position: relative;
-    display: inline-block;
-}
-
-.subtitle::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background-color: #000;
-    /* 底线颜色 */
-    transform-origin: bottom;
-    transform: scaleY(0);
-    /* 初始时不可见 */
-    transition: transform 0.3s ease-in-out;
-}
-
-.subtitle:hover::before {
-    transform: scaleY(1);
-    /* 悬停时升上来的效果 */
+.ease-in-back {
+  animation-name: fadeIn;
+  animation-duration: 0.8s;
+  animation-timing-function: cubic-bezier(.34, .79, .53, 1.15)
 }

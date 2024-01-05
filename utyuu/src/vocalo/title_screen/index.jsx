@@ -3,18 +3,44 @@ import { getTitleLyrics } from "apis/api";
 import "./index.css";
 
 const Lyrics = () => {
-  const [titleLyrics, setTitleLyrics] = useState("");
+  const [titleLyrics, setTitleLyrics] = useState([]);
+  const [lyricLang, setLyricLang] = useState("Japanese");
 
   useEffect(() => {
-    (async() => {
-      let lyricText = await getTitleLyrics();
-      setTitleLyrics(lyricText);
+    (async () => {
+      let data = await getTitleLyrics();
+      setTitleLyrics(data.lyricText.split("\n"));
+      setLyricLang(data.language);
     })();
   }, []);
 
   return (
-    <div className="rounded-md py-20 px-6 text-center">
-      <p className="" id="TitleLyrics">{titleLyrics}</p>
+    <div>
+      {/* <div class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-green-500 animated-text">
+        Your Text Here
+      </div> */}
+      <div className="rounded-md py-4 px-32 justify-center">
+        <div className="flex flex-row-reverse min-w-64">
+          {titleLyrics.map((line, index) => {
+            const animationDelay = `${index * 0.05}s`; // 根据索引计算延迟时间
+            let langClass = "text-animation flex-grow titleLyricLine";
+            if (lyricLang === "Japanese") {
+              if (index % 2 === 0) {
+                langClass += " titleLyricJapanese";
+              } else {
+                langClass += " titleLyricChinese";
+              }
+            }
+            return (
+              <div className="min-w-12 overflow-hidden bg-black bg-opacity-20 mx-1 my-4">
+                <p className={langClass} style={{ animationDelay }}>
+                  {line}
+                </p>
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 };

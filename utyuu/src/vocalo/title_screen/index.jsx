@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { getTitleLyrics } from "apis/api";
+import "./index.css";
 
 const Lyrics = () => {
   const [titleLyrics, setTitleLyrics] = useState("");
 
   useEffect(() => {
     (async() => {
-      const data = await getTitleLyrics();
-      setTitleLyrics(data);
+      let lyricText = await getTitleLyrics();
+      setTitleLyrics(lyricText);
     })();
   }, []);
 
   return (
-    <div className="rounded-md py-4 px-6 text-center">
-      <p className="text-lg font-semibold text-blue-700">{titleLyrics}</p>
+    <div className="rounded-md py-20 px-6 text-center">
+      <p className="" id="TitleLyrics">{titleLyrics}</p>
     </div>
   );
 };

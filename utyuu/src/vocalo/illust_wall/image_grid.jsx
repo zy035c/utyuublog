@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./image_grid.css";
-const { v4: uuidv4 } = require('uuid');
+const { v4: uuidv4 } = require("uuid");
 
 const AlbumCover = ({ image, tileSize }) => {
   const album_name = image.split(".")[0].split("/").pop();
@@ -144,26 +144,29 @@ const ImageGrid = ({ folderPath, useScaling, tileSize }) => {
   }, [tileSize, wallWidth, imageList]);
 
   return (
-    <div
-      className="bg-gray-200"
-      style={{
-        width: `${wallWidth}px`,
-        minHeight: "100vh",
-        transform: "translateY(0)",
-        overflow: "hidden",
-      }}
-      key={key}
-      ref={componentRef}
-    >
-      <div className="flex flex-wrap">
-        {imageList.map((image, _) => (
-          <AlbumCover
-            key={uuidv4()}
-            image={image}
-            useScaling={useScaling}
-            tileSize={tileSize}
-          />
-        ))}
+    <div className="bg-black">
+      <div className="album-cover-wall">
+        <div
+          style={{
+            width: `${wallWidth}px`,
+            minHeight: "100vh",
+            transform: "translateY(0)",
+            overflow: "hidden",
+          }}
+          key={key}
+          ref={componentRef}
+        >
+          <div className="flex flex-wrap">
+            {imageList.map((image, _) => (
+              <AlbumCover
+                key={uuidv4()}
+                image={image}
+                useScaling={useScaling}
+                tileSize={tileSize}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

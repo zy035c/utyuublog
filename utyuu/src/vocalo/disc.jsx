@@ -4,7 +4,7 @@ import TitleScreen from "./title_screen";
 const Vocacollection = () => {
   return (
     <div>
-      <div className="fixed inset-0 overflow-hidden z-0">
+      <div className="absolute inset-0 overflow-hidden z-0">
         <ImageGrid folderPath={"./collection"} tileSize={100} />
       </div>
       <div className="z-10">

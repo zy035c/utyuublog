@@ -1,44 +1,60 @@
 import React, { useState, useEffect } from "react";
 import { getTitleLyrics } from "apis/api";
 import "./index.css";
+import MusicPlayer from "./music_player";
 
 const Lyrics = () => {
   const [titleLyrics, setTitleLyrics] = useState([]);
-  const [lyricLang, setLyricLang] = useState("Japanese");
 
   useEffect(() => {
     (async () => {
       let data = await getTitleLyrics();
-      setTitleLyrics(data.lyricText.split("\n"));
-      setLyricLang(data.language);
+      setTitleLyrics(data);
     })();
   }, []);
 
+  const vertLineSpacing = 10;
+
   return (
-    <div>
-      {/* <div class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-green-500 animated-text">
-        Your Text Here
-      </div> */}
-      <div className="rounded-md py-4 px-32 justify-center">
-        <div className="flex flex-row-reverse min-w-64">
-          {titleLyrics.map((line, index) => {
-            const animationDelay = `${index * 0.05}s`; // 根据索引计算延迟时间
-            let langClass = "text-animation flex-grow titleLyricLine";
-            if (lyricLang === "Japanese") {
-              if (index % 2 === 0) {
-                langClass += " titleLyricJapanese";
-              } else {
-                langClass += " titleLyricChinese";
-              }
-            }
-            return (
-              <div className="min-w-12 overflow-hidden bg-black bg-opacity-20 mx-1 my-4">
-                <p className={langClass} style={{ animationDelay }}>
-                  {line}
-                </p>
-              </div>
-            );
-          })}
+    <div className="flex flex-1">
+      <div className="flex flex-1 flex-row-reverse pr-8 py-8 md:pr-24 md:py-16 min-w-64">
+        <div
+          className={`flex flex-row-reverse min-w-${vertLineSpacing + 2}`}
+          style={{ maxHeight: "530px" }}
+        >
+          <div
+            className="flex border-r w-auto lyrics-vert-bar h-full"
+            style={{ animationDelay: `0.4s` }}
+          ></div>
+        </div>
+
+        {titleLyrics.map((line, index) => {
+          const animationDelay = `${index * 0.05}s`; // 根据索引计算延迟时间
+          let langClass = "text-animation flex-grow titleLyricLine";
+          if (line.language === "Japanese") {
+            langClass += " titleLyricJapanese";
+          } else if (line.language === "Chinese") {
+            langClass += " titleLyricChinese";
+          }
+          return (
+            <div
+              className={`flex h-full min-w-${vertLineSpacing} overflow-hidden mx-0 my-0`}
+            >
+              <p className={langClass} style={{ animationDelay }}>
+                {line.lyricText}
+              </p>
+            </div>
+          );
+        })}
+
+        <div
+          className={`flex min-w-${vertLineSpacing + 2}`}
+          style={{ maxHeight: "530px" }}
+        >
+          <div
+            className="flex border-r w-auto lyrics-vert-bar h-full"
+            style={{ animationDelay: `${titleLyrics.length * 0.05 + 0.5}s` }}
+          />
         </div>
       </div>
     </div>
@@ -74,15 +90,14 @@ const ColorfulTestDiv = () => {
 const TitleScreen = () => {
   return (
     <div className="relative flex flex-col h-screen">
-      <div className="flex-1 flex items-center justify-center">
+      <div className="flex-1 flex items-center">
+        <MusicPlayer />
         <Lyrics />
       </div>
 
       <div className="flex-1 flex items-center justify-center">
         <ArrowDiv />
       </div>
-
-      {/* <ColorfulTestDiv /> */}
     </div>
   );
 };

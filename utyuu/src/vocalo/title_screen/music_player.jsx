@@ -35,24 +35,42 @@ const PlayerControl = ({ isMuted, toggleMute, songTitle }) => {
   if (isMuted) {
     spinningClassname = "icon-unspin";
   }
+  const [iconHover, setIconHover] = useState(false);
 
   console.log(songTitle);
+
+  let shouldShowPause = isMuted ? true : iconHover;
 
   return (
     <div className="absolute flex flex-1 h-18 min-w-20 max-w-64">
       <div className="rounded-r-full max-h-18 flex flex-row player-control-extend">
         <div className="flex">
           <div
-            className={`control-circle m-1.5 ${spinningClassname}`}
+            className={`control-circle ${isMuted ? "" : "control-circle-blink "}  m-1.5 ${spinningClassname}`}
             onClick={() => {
               toggleMute();
             }}
+            onMouseEnter={() => setIconHover(true)}
+            onMouseLeave={() => setIconHover(false)}
           >
-            <img
-              className={`player-control-icon`}
-              src="/title_music/live-music.png"
-              alt="Icon"
-            />
+            {shouldShowPause ? (
+              <img
+                className="player-control-pause-icon"
+                style={{
+                  filter: isMuted
+                    ? "invert(92%) sepia(64%) saturate(7498%) hue-rotate(101deg) brightness(102%) contrast(104%)"
+                    : ""  // 如果 isMuted 为 false，不应用任何滤镜效果
+                }}
+                src="/title_music/speech.png"
+                alt="Icon"
+              ></img>
+            ) : (
+              <img
+                className={`player-control-icon`}
+                src="/title_music/live-music.png"
+                alt="Icon"
+              />
+            )}
           </div>
         </div>
         <div className="flex right-0 h-16 items-center pl-2 pr-4 overflow-hidden">

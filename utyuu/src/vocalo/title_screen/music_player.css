@@ -29,7 +29,7 @@
 .player-control-extend:not(:hover) {
   /* color:; */
   overflow: hidden; /* 防止内容溢出 */
-  animation: playerCtrlShrink 0.7s cubic-bezier(.4,.6,.1,.96) forwards
+  animation: playerCtrlShrink 0.7s cubic-bezier(.4,.6,.1,.96) forwards;
 }
 
 .player-control-icon {
@@ -41,6 +41,7 @@
 
 .control-circle {
   position: relative;
+  opacity: 0.8;
   top: 0;
   left: 0;  
   width: 64px; /* 圆圈的宽度 */
@@ -60,8 +61,20 @@
   }
 }
 
-.control-circle:hover {
-  animation: circleExpand 0.4s cubic-bezier(.4,.6,.1,.96) 0.1s forwards;
+@keyframes reappear {
+  0% {
+    opacity: 0.8;
+  }
+  25% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
+.control-circle-blink:hover {
+  animation: circleExpand 0.4s cubic-bezier(.4,.6,.1,.96) 0.1s forwards, reappear 0.4s cubic-bezier(.4,.6,.1,.96) forwards;
 }
 
 
@@ -91,6 +104,15 @@
   animation: rotateForever 4s linear infinite;
 }
 
+@keyframes playerCtrlFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.8;
+  }
+}
+
 @keyframes playerCtrlFadeOut {
   from {
     opacity: 0.8;
@@ -101,7 +123,17 @@
 }
 
 .icon-unspin {
-  animation: playerCtrlFadeOut 0.35s cubic-bezier(.49,0,.76,.32) forwards; /* 2s表示动画时长，ease-in-out表示动画速度缓慢开始和结束 */
+  animation: playerCtrlFadeOut 0.7s cubic-bezier(.49,0,.76,.32) forwards;
+}
+
+.icon-unspin:hover {
+  animation: circleExpand 0.4s cubic-bezier(.4,.6,.1,.96) 0.1s forwards, playerCtrlFadeIn 0.1s cubic-bezier(.49,0,.76,.32) forwards;
+}
+
+.player-control-pause-icon {
+  opacity: 0.8;
+  filter: invert(100%);
+  scale: 70%;
 }
 
 .song-title {

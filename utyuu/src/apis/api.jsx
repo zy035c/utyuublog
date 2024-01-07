@@ -30,7 +30,7 @@ const simpleFetch = async (endpoint, endpointName) => {
 
 const getTitleLyrics = async () => {
   const parsedData = await simpleFetch("/index", " getTitleLyrics");
-  return parsedData.lyrics;
+  return parsedData;
 };
 
 export { getTitleLyrics };

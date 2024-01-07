@@ -1,53 +1,41 @@
-.music-player {
-  display: flex;
-  align-items: center;
+.player-control-extend {
+  background-color: rgba(149, 149, 149, 0);
+  box-shadow: 1.5px 1.5px 12px #00ffff;
 }
-
-.play-button {
-  width: 50px;
-  height: 50px;
-  background-color: #3498db;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.play-button.play {
-  /* 播放状态的样式 */
-}
-
-.play-button.pause {
-  /* 暂停状态的样式 */
-}
-
-.song-name {
-  margin-left: 10px;
-  font-size: 14px;
-  color: #333;
-}
-
-.open-player {
-  margin-left: 20px;
-  cursor: pointer;
-  color: #3498db;
-}
-
 
 @keyframes playerCtrlExtend {
   from {
-    width: auto;
+    width: 76px;
   }
   to {
-    width: 160px;
+    width: 256px;
   }
 }
 
 .player-control-extend:hover {
-  animation: playerCtrlExtend 4s ease-in 
+  overflow: hidden; /* 防止内容溢出 */
+  animation: playerCtrlExtend 0.4s cubic-bezier(.27,.76,.06,1) forwards
+}
+
+@keyframes playerCtrlShrink{
+  from {
+    width: 256px;
+  }
+  to {
+    width: 76px;
+  }
+}
+
+.player-control-extend:not(:hover) {
+  /* color:; */
+  overflow: hidden; /* 防止内容溢出 */
+  animation: playerCtrlShrink 0.7s cubic-bezier(.4,.6,.1,.96) forwards
 }
 
 .player-control-icon {
   filter: invert(100%);
-  /* width: 120px;
+  scale: 80%;
+  /* width: 120px;background-color: #00ffff;
   height: 120px;s */
 }
 
@@ -55,7 +43,81 @@
   position: relative;
   top: 0;
   left: 0;  
+  width: 64px; /* 圆圈的宽度 */
+  height: 64px; /* 圆圈的高度 */
   border-radius: 50%;
-  border: 2px solid white; /* 设置圆圈边框样式和颜色 */
+  border: 1px solid #ffffff; /* 设置圆圈边框样式和颜色 */
+  box-shadow: 1.5px 1.5px 12px #35cde8;
   box-sizing: border-box; /* 使边框宽度包含在元素内 */
+}
+
+@keyframes circleExpand {
+  from {
+    scale: 100%;
+  }
+  to {
+    scale: 105%;
+  }
+}
+
+.control-circle:hover {
+  animation: circleExpand 0.4s cubic-bezier(.4,.6,.1,.96) 0.1s forwards;
+}
+
+
+@keyframes rotateStart {
+  from {
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+  3% {
+    opacity:0.9;
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateForever {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.icon-spin {
+  animation: rotateForever 4s linear infinite;
+}
+
+@keyframes playerCtrlFadeOut {
+  from {
+    opacity: 0.8;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.icon-unspin {
+  animation: playerCtrlFadeOut 0.35s cubic-bezier(.49,0,.76,.32) forwards; /* 2s表示动画时长，ease-in-out表示动画速度缓慢开始和结束 */
+}
+
+.song-title {
+  color: rgba(256, 256, 256);
+  font-size: 1em;
+  /* 调整字体大小 */
+  font-weight: 200;
+
+  /* 调整字体粗细 */
+  letter-spacing: 0.4px;
+  /* 调整字间距 */
+  line-height: 1.3em;
+  /* 调整行间距 */
+
+
+  /* add a #00ffff cyan theme but darker shadow, closely stick to the font */
+  /* 调整字体阴影 */
+  text-shadow: 1px 1px 3px #0d9191, 1.5px 1.5px 12px #00ffff, 1.5px 1.5px 5px #35cde8;
 }

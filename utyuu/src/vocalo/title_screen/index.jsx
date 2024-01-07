@@ -3,15 +3,7 @@ import { getTitleLyrics } from "apis/api";
 import "./index.css";
 import MusicPlayer from "./music_player";
 
-const Lyrics = () => {
-  const [titleLyrics, setTitleLyrics] = useState([]);
-
-  useEffect(() => {
-    (async () => {
-      let data = await getTitleLyrics();
-      setTitleLyrics(data);
-    })();
-  }, []);
+const Lyrics = ({ lyricLines }) => {
 
   return (
     <div className="flex flex-1">
@@ -26,7 +18,7 @@ const Lyrics = () => {
           />
         </div>
 
-        {titleLyrics.map((line, index) => {
+        {lyricLines.map((line, index) => {
           const animationDelay = `${index * 0.05}s`; // 根据索引计算延迟时间
           let langClass = "text-animation flex-grow titleLyricLine";
           if (line.language === "Japanese") {
@@ -51,7 +43,7 @@ const Lyrics = () => {
         >
           <div
             className="flex border-r w-auto lyrics-vert-bar h-full"
-            style={{ animationDelay: `${titleLyrics.length * 0.05 + 0.5}s` }}
+            style={{ animationDelay: `${lyricLines.length * 0.05 + 0.5}s` }}
           />
         </div>
       </div>
@@ -86,11 +78,20 @@ const ColorfulTestDiv = () => {
 };
 
 const TitleScreen = () => {
+  const [titleLyrics, setTitleLyrics] = useState({lyrics: [], songTitle: ""});
+
+  useEffect(() => {
+    (async () => {
+      let data = await getTitleLyrics();
+      setTitleLyrics(data);
+    })();
+  }, []);
+
   return (
     <div className="relative flex flex-col h-screen">
       <div className="flex-1 flex items-center">
-        <MusicPlayer />
-        <Lyrics />
+        <MusicPlayer songTitle={titleLyrics.songTitle} />
+        <Lyrics lyricLines={titleLyrics.lyrics}/>
       </div>
 
       <div className="flex-1 flex items-center justify-center">

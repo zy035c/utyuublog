@@ -18,10 +18,19 @@ public class HelloUtyuu {
         private class LyricLine {
             private String lyricText;
             private String language;
+            private float startTime;
+            private float endTime;
 
             public LyricLine(String lyricText, String language) {
                 this.lyricText = lyricText;
                 this.language = language;
+            }
+            
+            public LyricLine(String lyricText, String language, float startTime, float endTime) {
+                this.lyricText = lyricText;
+                this.language = language;
+                this.startTime = startTime;
+                this.endTime = endTime;
             }
 
             public String getLyricText() {
@@ -35,9 +44,11 @@ public class HelloUtyuu {
 
         private static final long serialVersionUID = 1L;
         private List<LyricLine> lyrics;
+        private String songTitle;
 
-        public HelloResponse() {
+        public HelloResponse(String songTitle) {
             this.lyrics = new ArrayList<LyricLine>();
+            this.songTitle = songTitle;
         }
 
         public void addLyricLine(String lyricText, String language) {
@@ -51,12 +62,16 @@ public class HelloUtyuu {
         public List<LyricLine> getLyrics() {
             return this.lyrics;
         }
+
+        public String getSongTitle() {
+            return this.songTitle;
+        }
     }
 
     @GetMapping("/index")
     @CrossOrigin(origins = "http://localhost:3000") // 允许从 http://localhost:3000 这个域进行跨域请求
     public HelloResponse index() {
-        var x = new HelloResponse();
+        var x = new HelloResponse("宇宙分解 - はるまきごはん feat.初音ミク");
         x.addLyricLine("あなたの宇宙を分解だ 蛍火が消える前に", "Japanese");
         // x.addLineBreak();
         x.addLyricLine("你的宇宙在逐渐分解 在萤火消失之前", "Chinese");

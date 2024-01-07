@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import "./music_player.css";
 import AudioPlayer from "react-audio-player";
 
-const MusicPlayer = () => {
+const MusicPlayer = ({ songTitle }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [songName, setSongName] = useState("");
+  const [isMuted, setIsMuted] = useState(false);
 
-  const togglePlay = () => {
-    setIsPlaying(!isPlaying);
+  const toggleMute = () => {
+    setIsMuted(!isMuted);
   };
 
   const openPlayer = () => {
@@ -15,24 +16,49 @@ const MusicPlayer = () => {
     setSongName("Your Song Name");
   };
 
+  const musicUrl = "/title_music/10_宇宙分解.wav";
+
   return (
     <div>
-      <PlayerControl />
-      <AudioPlayer autoPlay src="" />
+      <PlayerControl
+        isMuted={isMuted}
+        toggleMute={toggleMute}
+        songTitle={songTitle}
+      />
+      <AudioPlayer autoPlay src={musicUrl} volume={isMuted ? 0 : 0.2} />
     </div>
   );
 };
 
-const PlayerControl = () => {
+const PlayerControl = ({ isMuted, toggleMute, songTitle }) => {
+  let spinningClassname = "icon-spin";
+  if (isMuted) {
+    spinningClassname = "icon-unspin";
+  }
+
+  console.log(songTitle);
+
   return (
-    <div className="absolute flex flex-1 h-16 min-w-16 max-w-64">
-      <div className="bg-opacity-50 bg-white flex flex-1 rounded-full w-16 player-control-extend">
-        <div className="flex flex-initial justify-center items-center control-circle">
-          <img
-            className="player-control-icon"
-            src="/title_music/live-music.png"
-            alt="Icon"
-          />
+    <div className="absolute flex flex-1 h-18 min-w-20 max-w-64">
+      <div className="rounded-r-full max-h-18 flex flex-row player-control-extend">
+        <div className="flex">
+          <div
+            className={`control-circle m-1.5 ${spinningClassname}`}
+            onClick={() => {
+              toggleMute();
+            }}
+          >
+            <img
+              className={`player-control-icon`}
+              src="/title_music/live-music.png"
+              alt="Icon"
+            />
+          </div>
+        </div>
+        <div className="flex right-0 h-16 items-center pl-2 pr-4 overflow-hidden">
+          <div className="pt-3">
+            <p className="flex max-h-18 song-title">{songTitle}</p>{" "}
+          </div>
         </div>
       </div>
     </div>

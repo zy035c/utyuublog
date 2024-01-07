@@ -144,5 +144,5 @@
 
 .album-cover-wall {
     opacity: 0.9;
-    animation: darken-bg 1s ease-in-out .75s forwards;
+    animation: darken-bg 0.8s ease-in-out .55s forwards;
 }

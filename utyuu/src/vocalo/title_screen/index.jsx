@@ -13,19 +13,17 @@ const Lyrics = () => {
     })();
   }, []);
 
-  const vertLineSpacing = 10;
-
   return (
     <div className="flex flex-1">
       <div className="flex flex-1 flex-row-reverse pr-8 py-8 md:pr-24 md:py-16 min-w-64">
         <div
-          className={`flex flex-row-reverse min-w-${vertLineSpacing + 2}`}
+          className={`flex flex-row-reverse min-w-12`}
           style={{ maxHeight: "530px" }}
         >
           <div
             className="flex border-r w-auto lyrics-vert-bar h-full"
             style={{ animationDelay: `0.4s` }}
-          ></div>
+          />
         </div>
 
         {titleLyrics.map((line, index) => {
@@ -38,7 +36,7 @@ const Lyrics = () => {
           }
           return (
             <div
-              className={`flex h-full min-w-${vertLineSpacing} overflow-hidden mx-0 my-0`}
+              className={`flex h-full min-w-10 overflow-hidden mx-0 my-0`}
             >
               <p className={langClass} style={{ animationDelay }}>
                 {line.lyricText}
@@ -48,7 +46,7 @@ const Lyrics = () => {
         })}
 
         <div
-          className={`flex min-w-${vertLineSpacing + 2}`}
+          className={`flex min-w-9`}
           style={{ maxHeight: "530px" }}
         >
           <div

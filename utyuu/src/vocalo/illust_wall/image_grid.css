@@ -1,0 +1,148 @@
+.Vcl_cover {
+    @apply bg-no-repeat bg-center bg-cover transition-all duration-200 ease-in-out;
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+}
+
+.vocaloid-Ama_no_Jaku {
+    @apply relative bg-contain bg-none;
+    background-size: 220px;
+    background-position: -15px;
+}
+
+.vocaloid-Cafne {
+    background-position: -53px;
+    background-size: 235px;
+}
+
+.vocaloid-DOGS {
+    @apply relative bg-none;
+    background-position: -10px;
+}
+
+.vocaloid-Melt {
+    @apply relative bg-contain;
+    background-size: 195px;
+    background-position: -28px;
+}
+
+.vocaloid-Q {
+    background-position: 0px -5px;
+}
+
+.vocaloid-chair_for_two {
+    background-position: left;
+}
+
+.vocaloid-filia {
+    background-size: 105%;
+}
+
+.vocaloid-Arkhe {
+    background-size: 115%;
+    background-position: -12px -9px;
+}
+
+.vocaloid-N_take {
+    background-size: 258%;
+    background-position: -20px -48px;
+}
+
+.vocaloid-Rain_stops_good-bye {
+    background-position: -12px;
+}
+
+.vocaloid-Seisou_Bakuretsu_Boy {
+    background-size: 107%;
+}
+
+.vocaloid-OFFICIAL_ORANGE {
+    background-size: 102%;
+}
+
+.vocaloid-THE-VOCAJAZZ-LIVE-SESSIONS {
+    background-size: 112%;
+    background-position: 0.2px;
+}
+
+.vocaloid-facsimile {
+    background-size: 110%;
+}
+
+.vocaloid-アストロノーツ {
+    background-position: 0px
+}
+
+.vocaloid-アルコルの改葬 {
+    background-size: 112%;
+}
+
+.vocaloid-おこちゃま戦争 {
+    background-size: 117%;
+}
+
+.vocaloid-Your_Pianist {
+    background-size: 101%;
+}
+
+.vocaloid-moratorium {
+    background-size: 126%;
+}
+
+.vocaloid-宇宙葬 {
+    background-size: 140%;
+}
+
+.vocaloid-kulfiQ {
+    background-size: 107%;
+}
+
+.vocaloid-深奏クオリア {
+    background-size: 181%;
+    background-position: -10px;
+}
+
+.vocaloid-Mikugazer {
+    background-size: 135%;
+}
+
+.vocaloid-zenbonzakura {
+    background-size: 137%;
+    background-position: -9px -2px;
+}
+
+.vocaloid-altawa_setsunahop {
+    background-size: 110%;
+}
+
+.vocaloid-Jitter_doll {
+    background-position: -12px;
+}
+
+.vocaloid-Headphone_actor {
+    background-size: 201%;
+}
+
+.vocaloid-Hysteresis {
+    background-position: -9px;
+    background-size: 117%;
+}
+
+.vocaloid-Jitter_doll {
+    background-position: -36px;
+}
+
+@keyframes darken-bg {
+    from{
+        opacity: 0.9;
+    }
+    to {
+        opacity: 0.7;
+    }
+}
+
+.album-cover-wall {
+    opacity: 0.9;
+    animation: darken-bg 0.8s ease-in-out .55s forwards;
+}

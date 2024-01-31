@@ -6,7 +6,7 @@ start:
 	@cd /home/zy035c/Utyuuzz/utyuublog/celestial && ./mvnw spring-boot:run -e
 
 bg-start:
-	@cd /home/zy035c/Utyuuzz/utyuublog/celestial && ./mvnw spring-boot:run -e &
+	@cd /home/zy035c/Utyuuzz/utyuublog/celestial && ./mvnw spring-boot:run -e >/dev/null 2>&1 &
 
 shutdown:
 	@echo "-------Spring-boot application utyuublog shutting down-------"

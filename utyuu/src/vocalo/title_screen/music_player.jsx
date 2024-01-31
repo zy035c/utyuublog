@@ -3,17 +3,10 @@ import "./music_player.css";
 import AudioPlayer from "react-audio-player";
 
 const MusicPlayer = ({ songTitle }) => {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [songName, setSongName] = useState("");
   const [isMuted, setIsMuted] = useState(false);
 
   const toggleMute = () => {
     setIsMuted(!isMuted);
-  };
-
-  const openPlayer = () => {
-    // 在这里可以实现打开音乐列表、显示歌曲名字等功能
-    setSongName("Your Song Name");
   };
 
   const musicUrl = "/title_music/10_宇宙分解.wav";
@@ -25,7 +18,7 @@ const MusicPlayer = ({ songTitle }) => {
         toggleMute={toggleMute}
         songTitle={songTitle}
       />
-      <AudioPlayer autoPlay src={musicUrl} volume={isMuted ? 0 : 0.2} />
+      <AudioPlayer autoPlay src={musicUrl} volume={isMuted ? 0 : 0.08} />
     </div>
   );
 };

@@ -4,16 +4,14 @@ import { Link, Route, Routes, useLocation } from 'react-router-dom';
 import DemoAbout from './about/about';
 import DemoHome from './home/home';
 
+import Posts from './tblog/tblog';
+
 function Products() {
   return <h2>About</h2>;
 }
 
 function Pricing() {
   return <h2>Pricing</h2>;
-}
-
-function Posts() {
-  return <h2>Posts</h2>;
 }
 
 const HeaderOption = ({to, text}) => {
@@ -36,7 +34,7 @@ const DemoHeader = () => {
         <HeaderOption to="./home" text="Primer!" />
         <HeaderOption to="/" text="Home" />
         <HeaderOption to="./products" text="Products" />
-        <HeaderOption to="./posts?id=5" text="Posts" />
+        <HeaderOption to="./posts" text="Posts" />
         <HeaderOption to="./#pricing" text="Pricing" />
       </div>
     </div>
@@ -54,7 +52,7 @@ const OldAppDemo = () => {
         <Route path={`/about`} element={<DemoAbout/>}/>
         <Route path={`/home`} element={<DemoHome/>}/>
         <Route path="/products" element={<Products />} />
-        <Route path="/posts" element={<Posts />} />
+        <Route path="/posts/*" element={<Posts />} />
         <Route path="/#pricing" element={<Pricing />} />
       </Routes>
 

@@ -9,7 +9,7 @@ const MusicPlayer = ({ songTitle }) => {
     setIsMuted(!isMuted);
   };
 
-  const musicUrl = "/title_music/10_宇宙分解.wav";
+  const musicUrl = "/title_music/04. Q.mp3";
 
   return (
     <div>
@@ -18,7 +18,7 @@ const MusicPlayer = ({ songTitle }) => {
         toggleMute={toggleMute}
         songTitle={songTitle}
       />
-      <AudioPlayer autoPlay src={musicUrl} volume={isMuted ? 0 : 0.08} />
+      <AudioPlayer autoPlay src={musicUrl} volume={isMuted ? 0 : 0.02} />
     </div>
   );
 };
@@ -35,11 +35,16 @@ const PlayerControl = ({ isMuted, toggleMute, songTitle }) => {
   let shouldShowPause = isMuted ? true : iconHover;
 
   return (
-    <div className="absolute flex flex-1 h-18 min-w-20 max-w-64">
+    <div
+      className="absolute flex flex-1 h-18 min-w-20 max-w-64"
+      style={{ scale: "90%" }}
+    >
       <div className="rounded-r-full max-h-18 flex flex-row player-control-extend">
         <div className="flex">
           <div
-            className={`control-circle ${isMuted ? "" : "control-circle-blink "}  m-1.5 ${spinningClassname}`}
+            className={`control-circle ${
+              isMuted ? "" : "control-circle-blink "
+            }  m-1.5 ${spinningClassname}`}
             onClick={() => {
               toggleMute();
             }}
@@ -52,7 +57,7 @@ const PlayerControl = ({ isMuted, toggleMute, songTitle }) => {
                 style={{
                   filter: isMuted
                     ? "invert(92%) sepia(64%) saturate(7498%) hue-rotate(101deg) brightness(102%) contrast(104%)"
-                    : ""  // 如果 isMuted 为 false，不应用任何滤镜效果
+                    : "", // 如果 isMuted 为 false，不应用任何滤镜效果
                 }}
                 src="/title_music/speech.png"
                 alt="Icon"

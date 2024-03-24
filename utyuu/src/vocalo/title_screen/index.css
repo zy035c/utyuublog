@@ -2,7 +2,7 @@
   writing-mode: vertical-rl;
   color: rgba(256, 256, 256);
   opacity: 0;
-  font-size: 1.4em;
+  font-size: 1.2em;
   /* 调整字体大小 */
   font-weight: 300;
 
@@ -23,7 +23,7 @@
 
 .titleLyricChinese {
   font-family: serif;
-  font-size: 1.2em;
+  font-size: 1.1em;
 }
 
 #TitleLyricEnglish {

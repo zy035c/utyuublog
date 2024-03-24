@@ -1,0 +1,35 @@
+.arrow-container {
+    /* justify-content: center; */
+    align-items: center;
+    /* padding-bottom: 4rem; */
+    /* filter: invert(100%); */
+    scale: 90%;
+}
+
+.arrow-container-animation {
+    animation: swing 2s ease-in-out infinite;
+}
+
+@keyframes swing {
+    0% {
+        transform: translateY(-6px);
+    }
+
+    50% {
+        transform: translateY(6px);
+    }
+
+    100% {
+        transform: translateY(-6px);
+    }
+}
+
+.arrow-horz-bar {
+    border-color: #a6e0df;
+    border-style: solid;
+    box-shadow: 1px 1px 4px #0d9191, 1px 1px 12px #00ffff, 1px 1px 5px #35cde8;
+    width: 100%;
+    height: 0%;
+    border-radius: 10px;
+    /* animation: vertBarExtend 1.1s cubic-bezier(.39,.13,.03,1.01) forwards; */
+}

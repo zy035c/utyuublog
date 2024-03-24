@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { getTitleLyrics } from "apis/api";
+
 import "./index.css";
 import MusicPlayer from "./music_player";
+import ArrowDiv from "vocalo/scroller_arrow/arrow_div";
 
 const Lyrics = ({ lyricLines }) => {
-
   return (
     <div className="flex flex-1">
       <div className="flex flex-1 flex-row-reverse pr-8 py-8 md:pr-24 md:py-16 min-w-64">
@@ -28,7 +29,8 @@ const Lyrics = ({ lyricLines }) => {
           }
           return (
             <div
-              className={`flex h-full min-w-10 overflow-hidden mx-0 my-0`}
+              className={`flex h-full overflow-hidden mx-0 my-0`}
+              style={{ minWidth: "42px" }}
             >
               <p className={langClass} style={{ animationDelay }}>
                 {line.lyricText}
@@ -37,10 +39,7 @@ const Lyrics = ({ lyricLines }) => {
           );
         })}
 
-        <div
-          className={`flex min-w-9`}
-          style={{ maxHeight: "530px" }}
-        >
+        <div className={`flex min-w-9`} style={{ maxHeight: "530px" }}>
           <div
             className="flex border-r w-auto lyrics-vert-bar h-full"
             style={{ animationDelay: `${lyricLines.length * 0.05 + 0.5}s` }}
@@ -51,34 +50,8 @@ const Lyrics = ({ lyricLines }) => {
   );
 };
 
-const ArrowDiv = () => {
-  return (
-    <div className="arrow-container">
-      <span className="arrow text-4xl cursor-pointer transform transition-transform duration-300 hover:scale-110 hover:filter-glow">
-        ↓
-      </span>
-    </div>
-  );
-};
-
-const ColorfulTestDiv = () => {
-  return (
-    <div class="grid grid-cols-3 grid-rows-3 place-content-center">
-      <div class="bg-blue-500">1</div>
-      <div class="bg-green-500">2</div>
-      <div class="bg-red-500">3</div>
-      <div class="bg-yellow-500">4</div>
-      <div class="bg-purple-500">5</div>
-      <div class="bg-pink-500">6</div>
-      <div class="bg-orange-500">7</div>
-      <div class="bg-indigo-500">8</div>
-      <div class="bg-teal-500">9</div>
-    </div>
-  );
-};
-
 const TitleScreen = () => {
-  const [titleLyrics, setTitleLyrics] = useState({lyrics: [], songTitle: ""});
+  const [titleLyrics, setTitleLyrics] = useState({ lyrics: [], songTitle: "" });
 
   useEffect(() => {
     (async () => {
@@ -90,12 +63,16 @@ const TitleScreen = () => {
   return (
     <div className="relative flex flex-col h-screen">
       <div className="flex-1 flex items-center">
-        <MusicPlayer songTitle={titleLyrics.songTitle} />
-        <Lyrics lyricLines={titleLyrics.lyrics}/>
+        <div className="fixed">
+          <MusicPlayer songTitle={titleLyrics.songTitle} />
+        </div>
+        <div className="absolute right-6 top-2">
+          <Lyrics lyricLines={titleLyrics.lyrics} />
+        </div>
       </div>
 
-      <div className="flex-1 flex items-center justify-center">
-        <ArrowDiv />
+      <div className="flex-1 flex items-center justify-center mb-10">
+          <ArrowDiv />
       </div>
     </div>
   );

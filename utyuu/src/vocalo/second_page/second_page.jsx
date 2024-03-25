@@ -6,11 +6,9 @@ import "./second_page.css";
 
 const SecPage = () => {
   return (
-    <div id="secondPage" className="relative flex flex-col h-screen">
-      {/* <div className="w-1/3"> */}
-        <SelfIntroduction />
-      {/* </div>
-      <SelfInfo /> */}
+    <div id="indexPage2" className="relative flex flex-row h-screen w-screen">
+      <SelfIntroduction />
+      <SelfInfo />
     </div>
   );
 };
@@ -28,7 +26,10 @@ const SelfIntroduction = () => {
   }, []);
 
   return (
-    <div className="relative select-text intro-text-div flex flex-col my-12 px-7 py-3">
+    <div
+      className="relative select-text h-fit intro-text-div 
+    flex flex-col mb-12 px-7 py-3"
+    >
       {selfIntro.map((line, _) => {
         return (
           <div className={`flex mx-1 my-1`} style={{ minWidth: "42px" }}>
@@ -43,7 +44,27 @@ const SelfIntroduction = () => {
 };
 
 const SelfInfo = () => {
-  return <div className="flex w-12 bg-white h-screen"></div>;
+  return (
+    <div
+      className="flex flex-col items-center h-full absolute 
+     self-info-column top-0 right-0 justify-start"
+    >
+      <img
+        className="my-avatar left-1/2"
+        src="/title_music/myavatar.png"
+        alt="my avatar"
+      ></img>
+      <MyName />
+    </div>
+  );
+};
+
+const MyName = () => {
+  return (
+    <div className="py-2 my-names">
+      <p>utyuu</p>
+    </div>
+  );
 };
 
 export default SecPage;

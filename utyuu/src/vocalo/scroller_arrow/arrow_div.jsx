@@ -6,7 +6,7 @@ import "./arrow_div.css";
 const ArrowDiv = () => {
   return (
     <span className="fixed left-1/2 bottom-16 transform transition-transform duration-300 hover:scale-110 hover:filter-glow">
-      <Link to="secondPage" smooth={true} duration={850}>
+      <Link to="indexPage2" smooth={true} duration={850}>
         <div className="arrow-container arrow-container-animation cursor-pointer">
           <div
             className="flex flex-1 justify-center items-center"
@@ -16,7 +16,7 @@ const ArrowDiv = () => {
               className="flex border-t h-auto arrow-horz-bar w-full"
               style={{
                 animationDelay: `0.4s`,
-                width: "84%",
+                width: "85%",
               }}
             />
           </div>

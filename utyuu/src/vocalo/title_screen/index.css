@@ -1,13 +1,13 @@
 .titleLyricLine {
   writing-mode: vertical-rl;
-  color: rgba(256, 256, 256);
+  color: #dadada;
   opacity: 0;
   font-size: 1.2em;
   /* 调整字体大小 */
   font-weight: 300;
 
   /* 调整字体粗细 */
-  letter-spacing: 0.18rem;
+  letter-spacing: 0.19rem;
   /* 调整字间距 */
   /* line-height: 1em; */
   /* 调整行间距 */

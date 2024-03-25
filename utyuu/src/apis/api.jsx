@@ -1,8 +1,8 @@
 const API_URL = `http://127.0.0.1:8080`;
 
 const printObjectProperties = (obj) => {
-  Object.keys(obj).forEach(prop => {
-    console.log(prop + ': ' + obj[prop]);
+  Object.keys(obj).forEach((prop) => {
+    console.log(prop + ": " + obj[prop]);
   });
 };
 
@@ -16,15 +16,15 @@ const simpleFetch = async (endpoint, endpointName) => {
     },
   });
 
-    if (!response.ok) {
-      console.error(`${endpointName}: Network response was not ok`);
-      return null;
-    }
-    const parsed = await response.json()
-    console.log("Fetched Data at " + endpoint + ", " + endpointName);
-    printObjectProperties(parsed); 
+  if (!response.ok) {
+    console.error(`${endpointName}: Network response was not ok`);
+    return null;
+  }
+  const parsed = await response.json();
+  console.log("Fetched Data at " + endpoint + ", " + endpointName);
+  printObjectProperties(parsed);
 
-    return parsed;
+  return parsed;
 };
 
 const simplePost = async (endpoint, endpointName, data) => {
@@ -47,11 +47,27 @@ const simplePost = async (endpoint, endpointName, data) => {
   printObjectProperties(parsed);
 
   return parsed;
-}
+};
 
 const getTitleLyrics = async () => {
   const parsedData = await simpleFetch("/api/index", "getTitleLyrics");
   return parsedData;
 };
 
-export { getTitleLyrics, simplePost, simpleFetch };
+const getSelfIntro = async () => {
+  const response = await fetch(API_URL + "/self_intro.txt", {
+    mode: "cors",
+    method: "GET",
+  });
+
+  if (!response.ok) {
+    console.error(`getSelfIntro: Network response was not ok`);
+    return null;
+  }
+  const txt = await response.text();
+  console.log("Fetched Data at getSelfIntro, " + txt);
+
+  return txt;
+};
+
+export { getTitleLyrics, simplePost, simpleFetch, getSelfIntro };

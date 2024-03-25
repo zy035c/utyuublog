@@ -105,7 +105,6 @@ public class HelloUtyuu {
     }
 
     @GetMapping("/index")
-    @CrossOrigin(origins = "http://localhost:3000") // 允许从 http://localhost:3000 这个域进行跨域请求
     public HelloResponse index() {
         // var x = new HelloResponse("宇宙分解 - はるまきごはん feat.初音ミク");
         // x.addLyricLine("あなたの宇宙を分解だ 蛍火が消える前に", "Japanese");

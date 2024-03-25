@@ -5,8 +5,8 @@ import "./arrow_div.css";
 
 const ArrowDiv = () => {
   return (
-    <span className="fixed bottom-16 text-4xl transform transition-transform duration-300 hover:scale-110 hover:filter-glow">
-      <Link to="secondPage" smooth={true} duration={500}>
+    <span className="fixed left-1/2 bottom-16 transform transition-transform duration-300 hover:scale-110 hover:filter-glow">
+      <Link to="secondPage" smooth={true} duration={850}>
         <div className="arrow-container arrow-container-animation cursor-pointer">
           <div
             className="flex flex-1 justify-center items-center"
@@ -16,7 +16,7 @@ const ArrowDiv = () => {
               className="flex border-t h-auto arrow-horz-bar w-full"
               style={{
                 animationDelay: `0.4s`,
-                width: "86%",
+                width: "84%",
               }}
             />
           </div>
@@ -38,9 +38,9 @@ const SvgArrow = () => {
       >
         <path d="M 10 0 L 60 50 L 110 0 Z" fill="#d3f2f1" />
         <filter id="shadow">
-          <feDropShadow dx="1" dy="1" stdDeviation="5" flood-color="#00ffff" />
-          <feDropShadow dx="1" dy="1" stdDeviation="4" flood-color="#35cde8" />
-          <feDropShadow dx="0" dy="0" stdDeviation="2" flood-color="#0d9191" />
+          <feDropShadow dx="1" dy="1" stdDeviation="5" floodColor="#00ffff" />
+          <feDropShadow dx="1" dy="1" stdDeviation="4" floodColor="#35cde8" />
+          <feDropShadow dx="0" dy="0" stdDeviation="2" floodColor="#0d9191" />
         </filter>
         <path
           d="M 10 0 L 60 50 L 110 0 Z"

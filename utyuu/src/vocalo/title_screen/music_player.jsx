@@ -36,8 +36,8 @@ const PlayerControl = ({ isMuted, toggleMute, songTitle }) => {
 
   return (
     <div
-      className="absolute flex flex-1 h-18 min-w-20 max-w-64"
-      style={{ scale: "90%" }}
+      className="absolute top-1/3 flex flex-1 h-18 min-w-20 max-w-64"
+      style={{ scale: "84%" }}
     >
       <div className="rounded-r-full max-h-18 flex flex-row player-control-extend">
         <div className="flex">

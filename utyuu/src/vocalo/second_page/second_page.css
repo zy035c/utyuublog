@@ -1,0 +1,84 @@
+.self-intro-text {
+    color: #DADADA;
+    opacity: 0;
+    font-size: 0.84rem;
+    /* 调整字体大小 */
+    font-weight: 200;
+    /* 调整字体粗细 */
+    letter-spacing: 0.04rem;
+    /* 调整字间距 */
+    line-height: 1.37rem;
+    /* 调整行间距 */
+    font-family:'Courier New', Courier, monospace;
+
+
+    /* add a #00ffff cyan theme but darker shadow, closely stick to the font */
+    /* 调整字体阴影 */
+    /* text-shadow: 1px 1px 1.5px #0d9191, 1px 1px 12px #00ffff, 1px 1px 5px #35cde8; */
+}
+
+.intro-text-div {
+    width: 560px;
+    background-color: rgba(0, 0, 0, 0.76);
+    margin-left: 200px;
+}
+
+
+@keyframes revealText {
+    from {
+        opacity: 0.90;
+        transform: translateX(70px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.text-animation {
+    display: inline-block;
+    animation: revealText 2.2s cubic-bezier(.39, .55, .17, 1.03) forwards
+}
+
+
+@keyframes fontFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-100);
+    }
+
+    12% {
+        opacity: 0.1;
+        transform: translateY(-100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+.ease-in-back {
+    animation-name: fontFadeIn;
+    animation-duration: 0.8s;
+    animation-timing-function: cubic-bezier(.34, .79, .53, 1.15)
+}
+
+@keyframes vertBarExtend {
+    from {
+        height: 0%;
+    }
+
+    to {
+        height: 100%;
+    }
+}
+
+.lyrics-vert-bar {
+    border-color: #00ffff;
+    border-style: solid;
+    box-shadow: 1px 1px 4px #0d9191, 1px 1px 12px #00ffff, 1px 1px 5px #35cde8;
+    height: 0%;
+    animation: vertBarExtend 1.1s cubic-bezier(.39, .13, .03, 1.01) forwards;
+}

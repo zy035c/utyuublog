@@ -50,29 +50,26 @@ const Lyrics = ({ lyricLines }) => {
   );
 };
 
-const TitleScreen = () => {
+const TitleScreen = ({ setSongTitle }) => {
   const [titleLyrics, setTitleLyrics] = useState({ lyrics: [], songTitle: "" });
 
   useEffect(() => {
     (async () => {
       let data = await getTitleLyrics();
       setTitleLyrics(data);
+      setSongTitle(data.songTitle);
     })();
-  }, []);
+  }, [setSongTitle]);
 
   return (
-    <div className="relative flex flex-col h-screen">
-      <div className="flex-1 flex items-center">
-        <div className="fixed">
+    <div className="flex relative h-screen">
+      <div className="flex-1 flex">
+        {/* <div className="fixed">
           <MusicPlayer songTitle={titleLyrics.songTitle} />
-        </div>
+        </div> */}
         <div className="absolute right-6 top-2">
           <Lyrics lyricLines={titleLyrics.lyrics} />
         </div>
-      </div>
-
-      <div className="flex-1 flex items-center justify-center mb-10">
-          <ArrowDiv />
       </div>
     </div>
   );

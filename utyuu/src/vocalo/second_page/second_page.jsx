@@ -3,17 +3,21 @@ import React, { useState, useEffect } from "react";
 import { getSelfIntro } from "apis/api";
 
 import "./second_page.css";
+import IndexThirdSection from "./index_third_section";
 
-const SecPage = () => {
+const IndexSecondPage = () => {
   return (
-    <div id="indexPage2" className="relative flex flex-row h-screen w-screen">
-      <SelfIntroduction />
+    <div id="indexPage2" className="relative flex flex-row h-screen w-screen min-w-[1350px]">
       <SelfInfoColumn />
+      <div className="relative flex flex-col">
+        <FeaturedBlog />
+        <IndexThirdSection />
+      </div>
     </div>
   );
 };
 
-const SelfIntroduction = () => {
+const FeaturedBlog = () => {
   const [selfIntro, setSelfIntro] = useState([]);
 
   useEffect(() => {
@@ -28,12 +32,12 @@ const SelfIntroduction = () => {
   return (
     <div className="flex relative w-fit h-fit pr-48">
       <BookmarkDeco />
-      <div className="relative intro-text-bg select-text h-fit flex flex-col mb-12 px-7 py-3 justify-center items-center">
-        <div className="intro-text-div w-full h-fit">
+      <div className="relative blog-div-bg select-text h-fit flex flex-col mb-12 px-7 py-3 justify-center items-center">
+        <div className="w-[560px] h-fit">
           {selfIntro.map((line, _) => {
             return (
               <div className={`flex mx-1 my-1`} style={{ minWidth: "42px" }}>
-                <p className="flex select-text text-animation self-intro-text flex-grow">
+                <p className="flex select-text text-animation featured-blog-text flex-grow">
                   {line}
                 </p>
               </div>
@@ -69,9 +73,7 @@ const BookmarkDeco = () => {
     <div className="absolute right-2 top-48 flex w-fit h-fit flex-row">
       <div className="relative z-30 h-8 w-24 bg-orange-500 bookmark-deco"></div>
       <div className="relative flex mx-4 z-30 h-8 w-fit bg-orange-500 items-center bookmark-timestamp">
-        <p className="relative text-center px-4">
-          2024-03-26
-        </p>
+        <p className="relative text-center px-4">2024-03-26</p>
       </div>
     </div>
   );
@@ -208,4 +210,4 @@ const MyName = () => {
   );
 };
 
-export default SecPage;
+export default IndexSecondPage;

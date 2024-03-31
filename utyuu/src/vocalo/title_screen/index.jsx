@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import { getTitleLyrics } from "apis/api";
 
 import "./index.css";
-import MusicPlayer from "./music_player";
-import ArrowDiv from "vocalo/scroller_arrow/arrow_div";
 
 const Lyrics = ({ lyricLines }) => {
   return (

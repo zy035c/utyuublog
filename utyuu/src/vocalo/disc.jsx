@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import ImageGrid from "./illust_wall/image_grid";
 import TitleScreen from "./title_screen";
-import SecPage from "./second_page/second_page";
+import IndexSecondPage from "./second_page/second_page";
 import MusicPlayer from "./title_screen/music_player";
 import ArrowDiv from "./scroller_arrow/arrow_div";
 
@@ -22,7 +22,7 @@ const Vocacollection = () => {
         <ArrowDiv />
       </div>
       <div className="z-10">
-        <SecPage />
+        <IndexSecondPage />
       </div>
     </div>
   );

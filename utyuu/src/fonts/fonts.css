@@ -11,3 +11,8 @@
     src: url('./Harenosora.otf') format('opentype');
     /* 可以添加其他格式的字体文件，根据需要添加不同的src项 */
 }
+
+@font-face {
+    font-family: 'Song-Yiti';
+    src: url('./Songyiti.ttf');
+}

@@ -1,8 +1,8 @@
 
 
 .cursor-img {
-    width: 58;
-    height: 58px;
+    width: 36px;
+    height: 36px;
     clip-path: polygon(4% 0%, 100% 0%, 100% 45%, 100% 92%, 4% 92%, 4% 45%);
     object-fit: cover; /* 缩放图片以填充容器，保持宽高比 */
 }

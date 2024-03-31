@@ -1,6 +1,6 @@
-.self-intro-text {
+.featured-blog-text {
     color: #c0c0c0;
-    opacity: 90%;
+    opacity: 80%;
     font-size: 0.88rem;
     /* 调整字体大小 */
     font-weight: 100;
@@ -16,15 +16,16 @@
     /* text-shadow: 1px 1px 1.5px #0d9191, 1px 1px 12px #00ffff, 1px 1px 5px #35cde8; */
 }
 
-.intro-text-bg {
+.blog-div-bg {
     margin-left: 160px;
     width: 840px;
     padding-top: 40px;
     padding-bottom: 40px;
-    background-color: rgba(0, 0, 0, 0.76);
+    background-color: rgba(0, 0, 0);
+    opacity: 84%;
 }
 
-.intro-text-div {
+.blog-div {
     width: 560px;
     /* background-color: rgba(0, 0, 0, 0.76);
     margin-left: 160px; */
@@ -81,7 +82,7 @@
 .self-info-column {
     width: 330px;
     /* background-color: #ececec; */
-    opacity: 94%;
+    opacity: 98%;
 }
 
 .my-names {

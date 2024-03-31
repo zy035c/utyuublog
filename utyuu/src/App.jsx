@@ -3,6 +3,7 @@ import React from 'react';
 import Vocacollection from './vocalo/disc';
 import OldAppDemo from './old_app/oldapp';
 import { Link, Routes, BrowserRouter, Route } from 'react-router-dom';
+import Cursor from 'cursor/cursor';
 
 const Card = ({ to, title }) => {
   return (
@@ -24,7 +25,6 @@ const HomePage = () => {
 };
 
 const App = () => {
-  // console.log("yes");
   return (
     <div>
       <BrowserRouter>
@@ -34,6 +34,7 @@ const App = () => {
           <Route path="/vocallection/*" element={<Vocacollection/>} />
         </Routes>
       </BrowserRouter>
+      <Cursor />
     </div>
   )
 }

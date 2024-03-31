@@ -65,8 +65,6 @@ const getSelfIntro = async () => {
     return null;
   }
   const txt = await response.text();
-  console.log("Fetched Data at getSelfIntro, " + txt);
-
   return txt;
 };
 
